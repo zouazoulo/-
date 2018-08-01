@@ -15,11 +15,10 @@
 
 	<body>
 		<script type="text/javascript">
-			var app = new PIXI.Application(800, 600, {
-				backgroundColor: 0x1099bb
-			});
+			//创建一个画布
+			var app = new PIXI.Application(800, 600, {backgroundColor: 0x1099bb});
 			document.body.appendChild(app.view);
-
+			// 图片的容器
 			var container = new PIXI.Container();
 			app.stage.addChild(container);
 
@@ -28,22 +27,19 @@
 				.load(setup)
 
 			function setup() {
-				//					var container = new PIXI.Container();
-				var bunny = new PIXI.Sprite(PIXI.loader.resources["./img/1.png"].texture);
+				var icon = PIXI.loader.resources["./img/1.png"].texture;
 
-				//				app.stage.addChild(icon);
 				for(var i = 0; i < 25; i++) {
-					console.log(i)
-					//var bunny = new PIXI.Sprite(icon);
+					var bunny = new PIXI.Sprite(icon);
 					bunny.anchor.set(0.5);
-					bunny.x = (i % 5) * 40;
-					bunny.y = Math.floor(i / 5) * 40;
+					bunny.x = (i % 5) * 50;
+					bunny.y = Math.floor(i / 5) * 50;
 					container.addChild(bunny);
 				}
-
-				//				container.x = (app.screen.width - container.width) / 2;
-				//				container.y = (app.screen.height - container.height) / 2;
-
+				//容器的在画布居中的位置
+				container.x = (app.screen.width - container.width) / 2;
+				container.y = (app.screen.height - container.height) / 2;
+				
 			}
 		</script>
 

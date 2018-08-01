@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Container Pivot</title>
+	</head>
+	<style>
+		*{padding: 0;margin: 0;}
+	</style>
+	<body>
+		<script type="text/javascript" src = "https://pixijs.download/release/pixi.min.js"></script>
+		<script type="text/javascript">
+			
+			//创造一个背景
+			var app = new PIXI.Application(800,600,{backgroundColor:0x000000});
+			document.body.appendChild(app.view);
+			// 包裹 图片的容器
+			var container = new PIXI.Container();
+			app.stage.addChild(container);
+			//加入图片
+			PIXI.loader
+				.add("./img/1.png")
+				.load(setup)
+			
+			
+			
+			function setup(){
+				var icon = PIXI.loader.resources["./img/1.png"].texture; //texture 纹理   resources 加载资源
+				
+				for(var i = 0;i < 25 ;i++ ){
+					var bunny = new PIXI.Sprite(icon);
+//					bunny.anchor.set(0.5);
+					bunny.x = (i % 5) * 50;
+					bunny.y = Math.floor(i/5) * 50; //向下取整
+					container.addChild(bunny);
+				}
+
+				// container 的坐标
+				container.x = app.screen.width / 2;
+				container.y = app.screen.height / 2;
+				
+				//  pivot 轴心坐标 
+			 	container.pivot.x = container.width / 2;     
+				container.pivot.y = container.height / 2;
+
+				console.log(container.width)
+				console.log(container.height)
+				app.ticker.add(function(delta) {  //ticker 请求动画帧
+				    // rotate the container!
+				    // use delta to create frame-independent transform
+				    container.rotation -= 0.01 * delta;
+				});
+
+			}
+		</script>
+	</body>
+</html>

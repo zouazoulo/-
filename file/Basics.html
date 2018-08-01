@@ -17,9 +17,7 @@
 			//创建一个新的图片 
 			PIXI.loader
 				.add("./img/1.png")
-				.load(setup);
-				
-//				var person = new PIXI.Sprite(PIXI.loader.resources["./img/1.png"].texture);
+				.load(setup)
 			//旋转
 			function setup(){
 				var person = new PIXI.Sprite(PIXI.loader.resources["./img/1.png"].texture);
@@ -28,11 +26,9 @@
 				//图片位置在画布居中
 				person.x = app.screen.width / 2;
 				person.y = app.screen.height / 2;
+				
 				app.ticker.add(function(delta) {
-			    // just for fun, let's rotate mr rabbit a little
-			    // delta is 1 if running at 100% performance
-			    // creates frame-independent transformation
-			    person.rotation += 0.1 * delta;
+			   		 person.rotation += 0.1 * delta;
 				});
 				//将图片放入画布
 				app.stage.addChild(person);
