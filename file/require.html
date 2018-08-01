@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div class="two"></div>
+			
+		
+		<script type="text/javascript" src="https://requirejs.org/docs/release/2.1.11/comments/require.js"></script>
+	<!--	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>-->
+	<script type="text/javascript" src="js/one.js"></script>
+	<!--<script type="text/javascript" src = "js/jquery.js">
+	 		 </script>-->
+		<script type="text/javascript">
+			require(['jquery'],function(){
+				 var a = $(".two").css({
+					width : '20px',
+					height: '30px'
+				})
+				console.log (a)
+			})
+		</script>
+	</body>
+</html>
