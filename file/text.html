@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{padding:0;margin:0;}
+		</style>
+	</head>
+	<script type="text/javascript" src="https://pixijs.download/release/pixi.min.js"></script>
+	<body>
+		<script type="text/javascript">
+				var app = new PIXI.Application(800,600,{backgroundColor : 0xe6e6e6});
+				document.body.appendChild(app.view);
+				
+				var basicText = new PIXI.Text("pixi 中的基本文字",style);
+				basicText.x = 30;
+				basicText.y = 90;
+				app.stage.addChild(basicText);
+				
+				var style = new PIXI.TextStyle({
+					fontFamily:'Arial',           //字体
+					fontSize:36,  				  //字号
+					fontStyle:'italic', 		  //字体样式
+					fontWeight:'bold', 			  //字重
+					fill:['	#FFB6C1','#F5DEB3'],  //渐变
+					storke:'#FF4500',			  // 将在文本笔划上使用画布填充样式
+					storkeThockness:5,			  //表示笔划粗细的数字
+					dropShadow:true,			  // 为文本设置投影(阴影)
+					dropShadowColor:'#FF4500',	  //阴影颜色
+					dropShadowBlur:4,			  //阴影模糊半径 
+												  //设置投影角度
+					dropShadowAngle:Math.PI / 6,   
+					dropShadowDistance: 6,        //设置投影距离
+					wordWrap:true,				  //指定是否自动换行
+					wordWrapWidth:440		      //设置文本换行的宽度
+					
+				});
+				var sing = new PIXI.Text("处处吻-杨千嬅",style);
+					sing.x = 30;
+					sing.y = 180;
+				app.stage.addChild(sing)
+		</script>
+	</body>
+</html>

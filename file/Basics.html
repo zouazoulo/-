@@ -20,14 +20,14 @@
 				.load(setup)
 			//旋转
 			function setup(){
-				var person = new PIXI.Sprite(PIXI.loader.resources["./img/1.png"].texture);
+				var person = new PIXI.Sprite(PIXI.loader.resources["./img/1.png"].texture);//resources 加载资源
 				//图片锚 在中心
 				person.anchor.set(0.5);
 				//图片位置在画布居中
 				person.x = app.screen.width / 2;
 				person.y = app.screen.height / 2;
 				
-				app.ticker.add(function(delta) {
+				app.ticker.add(function(delta) { //ticker 断续器
 			   		 person.rotation += 0.1 * delta;
 				});
 				//将图片放入画布
